@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        snyk 'snyk'  // This must match the Snyk installation name in Jenkins
+        // snyk 'snyk'  // This must match the Snyk installation name in Jenkins
     }
 
     environment {
