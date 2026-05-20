@@ -42,5 +42,7 @@ jobs:
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
       run: |
         mvn -B verify sonar:sonar \
+          -Dsonar.host.url=$SONAR_HOST_URL \
+          -Dsonar.token=$SONAR_TOKEN \        
           -Dsonar.projectKey=sonar-project-demo \
           -Dsonar.projectName="sonar.project.demo"
