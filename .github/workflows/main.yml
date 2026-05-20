@@ -1,4 +1,4 @@
-name: Java CI with Maven and SonarQube
+name: GitHub Actions CI with Maven and SonarQube
 
 on:
   push:
