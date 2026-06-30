@@ -24,6 +24,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
+import java.time.ZoneOffset;
 
 /**
  * Simple JavaBean domain object representing a visit.
@@ -60,7 +61,7 @@ public class Visit extends BaseEntity {
      * Creates a new instance of Visit for the current date
      */
     public Visit() {
-        this.date = LocalDate.now();
+        this.date = LocalDate.now(ZoneOffset.UTC);
     }
 
 

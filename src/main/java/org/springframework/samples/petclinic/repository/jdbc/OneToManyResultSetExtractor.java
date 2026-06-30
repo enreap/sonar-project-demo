@@ -87,40 +87,43 @@ public abstract class OneToManyResultSetExtractor<R, C, K> implements ResultSetE
 
 	public List<R> extractData(ResultSet rs) throws SQLException {
 		List<R> results = new ArrayList<R>();
-		int row = 0;
-		boolean more = rs.next();
-		if (more) {
-			row++;
-		}
+		int[] row = {0};
+		boolean more = advanceResultSet(rs, row);
 		while (more) {
-			R root = rootMapper.mapRow(rs, row);
+			R root = rootMapper.mapRow(rs, row[0]);
 			K primaryKey = mapPrimaryKey(rs);
 			if (mapForeignKey(rs) != null) {
 				while (more && primaryKey.equals(mapForeignKey(rs))) {
-					addChild(root, childMapper.mapRow(rs, row));
-					more = rs.next();
-					if (more) {
-						row++;
-					}
+					addChild(root, childMapper.mapRow(rs, row[0]));
+					more = advanceResultSet(rs, row);
 				}
 			}
 			else {
-				more = rs.next();
-				if (more) {
-					row++;
-				}
+				more = advanceResultSet(rs, row);
 			}
 			results.add(root);
 		}
+		validateResultSize(results);
+		return results;
+	}
+
+	private boolean advanceResultSet(ResultSet rs, int[] row) throws SQLException {
+		if (rs.next()) {
+			row[0]++;
+			return true;
+		}
+		return false;
+	}
+
+	private void validateResultSize(List<R> results) {
 		if ((expectedResults == ExpectedResults.ONE_AND_ONLY_ONE || expectedResults == ExpectedResults.ONE_OR_NONE) &&
 				results.size() > 1) {
 			throw new IncorrectResultSizeDataAccessException(1, results.size());
 		}
 		if ((expectedResults == ExpectedResults.ONE_AND_ONLY_ONE || expectedResults == ExpectedResults.AT_LEAST_ONE) &&
-				results.size() < 1) {
+				results.isEmpty()) {
 			throw new IncorrectResultSizeDataAccessException(1, 0);
 		}
-		return results;
 	}
 
 	/**
