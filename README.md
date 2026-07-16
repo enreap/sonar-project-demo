@@ -227,7 +227,7 @@ The [issue tracker](/issues) is the preferred channel for bug reports, features 
 For pull requests, editor preferences are available in the [editor config](.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
 
 
-New line.
+New line added.
 
 
 
