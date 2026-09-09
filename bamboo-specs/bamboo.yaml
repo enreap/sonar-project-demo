@@ -1,0 +1,20 @@
+version: 2
+
+plan:
+  project-key: BAM
+  key: BUILD
+  name: Java Build
+
+stages:
+  - Build:
+      jobs:
+        - Maven Build
+
+Maven Build:
+  tasks:
+    - checkout:
+        force-clean-build: true
+
+    - script:
+        scripts:
+          - mvn clean test package
