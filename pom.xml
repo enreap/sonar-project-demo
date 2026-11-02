@@ -84,11 +84,11 @@
     <!-- JFrog Repository Configuration -->
     <distributionManagement>
         <!-- Release Repository -->
-        <repository>
+        <!-- <repository>
             <id>central</id>
             <name>JFrog Maven Releases</name>
             <url>https://enreaptrail.jfrog.io/artifactory/sonar-project-demo-libs-release-local/</url>
-        </repository>
+        </repository> -->
 
         <!-- Snapshot Repository -->
         <snapshotRepository>
