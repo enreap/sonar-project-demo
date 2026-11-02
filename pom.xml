@@ -81,7 +81,23 @@
         <docker.image.prefix>springcommunity</docker.image.prefix>
 
     </properties>
+    <!-- JFrog Repository Configuration -->
+    <distributionManagement>
+        <!-- Release Repository -->
+        <repository>
+            <id>central</id>
+            <name>JFrog Maven Releases</name>
+            <url>https://enreaptrail.jfrog.io/artifactory/sonar-project-demo-libs-release-local/</url>
+        </repository>
 
+        <!-- Snapshot Repository -->
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>JFrog Maven Snapshots</name>
+            <url>https://enreaptrail.jfrog.io/artifactory/sonar-project-demo-libs-snapshot-local/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    
     <dependencyManagement>
         <dependencies>
             <dependency>
