@@ -86,15 +86,15 @@
         <!-- Release Repository -->
         <!-- <repository>
             <id>central</id>
-            <name>JFrog Maven Releases</name>
-            <url>https://enreaptrail.jfrog.io/artifactory/sonar-project-demo-libs-release-local/</url>
+            <name>jfrogmavendemo-libs-release-local</name>
+            <url>https://jfrog-poc.gitlab-enreap.com/artifactory/jfrogmavendemo-libs-release-local//</url>
         </repository> -->
 
         <!-- Snapshot Repository -->
         <snapshotRepository>
             <id>snapshots</id>
-            <name>JFrog Maven Snapshots</name>
-            <url>https://enreaptrail.jfrog.io/artifactory/sonar-project-demo-libs-snapshot-local/</url>
+            <name>jfrogmavendemo-libs-snapshot-local</name>
+            <url>https://jfrog-poc.gitlab-enreap.com/artifactory/jfrogmavendemo-libs-snapshot-local//</url>
         </snapshotRepository>
     </distributionManagement>
     
